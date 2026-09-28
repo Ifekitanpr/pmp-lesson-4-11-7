@@ -333,3 +333,14 @@
 .hero h2{font-size:clamp(34px,3.3vw,48px)}
 @media(max-width:1050px){.component-grid.five{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.component-grid.five{grid-template-columns:1fr}.component-grid.five button{min-height:130px}}
+
+
+/* System rule: exactly four learning cards use a balanced 2 x 2 grid. */
+:is(.card-grid, .source-grid, .direct-card-grid, .component-grid, .domain-wheel, .domain-figure-grid, .stack-grid, .docs-matrix-grid):has(> :nth-child(4):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 600px) {
+  :is(.card-grid, .source-grid, .direct-card-grid, .component-grid, .domain-wheel, .domain-figure-grid, .stack-grid, .docs-matrix-grid):has(> :nth-child(4):last-child) {
+    grid-template-columns: 1fr;
+  }
+}
